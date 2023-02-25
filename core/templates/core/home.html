@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Bem-vindo ao Sistema de Gerenciamento de Escola</h1>
+  <p>Selecione uma opção abaixo para começar:</p>
+  <ul>
+    <li><a href="{% url 'aluno_list' %}">Gerenciar Alunos</a></li>
+    <li><a href="{% url 'curso_list' %}">Gerenciar Cursos</a></li>
+    <li><a href="{% url 'professor_list' %}">Gerenciar Professores</a></li>
+    <li><a href="{% url 'turma_list' %}">Gerenciar Turmas</a></li>
+  </ul>
+{% endblock %}

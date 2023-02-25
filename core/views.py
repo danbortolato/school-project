@@ -1,6 +1,11 @@
-from django.shortcuts import render, redirect
-from .models import Aluno, Curso, Professor, Turma
+from django.shortcuts import redirect, render
+
 from .forms import AlunoForm, CursoForm, ProfessorForm, TurmaForm
+from .models import Aluno, Curso, Professor, Turma
+
+
+def home(request):
+    return render(request, 'core/home.html')
 
 
 def aluno_list(request):
