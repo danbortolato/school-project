@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Lista de Turmas</h1>
+  <a href="{% url 'turma_create' %}">Adicionar Turma</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Curso</th>
+        <th>Professor</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for turma in turmas %}
+        <tr>
+          <td>{{ turma.nome }}</td>
+          <td>{{ turma.curso.nome }}</td>
+          <td>{{ turma.professor.nome }}</td>
+          <td>
+            <a href="{% url 'turma_update' turma.id %}">Editar</a>
+            <a href="{% url 'turma_delete' turma.id %}" onclick="return confirm('Você tem certeza?')">Excluir</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
