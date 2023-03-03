@@ -9,11 +9,17 @@ class Aluno(models.Model):
     telefone = models.CharField(max_length=20)
     email = models.EmailField()
 
+    def __str__(self):
+        return self.nome
+
 
 class Curso(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.TextField()
     carga_horaria = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.nome
 
 
 class Professor(models.Model):
@@ -24,9 +30,15 @@ class Professor(models.Model):
     telefone = models.CharField(max_length=20)
     email = models.EmailField()
 
+    def __str__(self):
+        return self.nome
+
 
 class Turma(models.Model):
     nome = models.CharField(max_length=100)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
     alunos = models.ManyToManyField(Aluno)
+
+    def __str__(self):
+        return self.nome
